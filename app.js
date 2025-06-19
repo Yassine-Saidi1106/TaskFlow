@@ -9,6 +9,7 @@ const http = require ("http") //importation du protocol web
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+require("dotenv").config() //configuration de env 
 
 var app = express();
 
@@ -38,6 +39,6 @@ app.use(function(err, req, res, next) {
 });
 
 const server = http.createServer (app)
-server.listen(5000, () => {
+server.listen(process.env.port, () => {
     console.log("app is running on port 5000");
 });
